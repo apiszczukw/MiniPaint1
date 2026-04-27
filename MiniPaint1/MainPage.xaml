@@ -4,8 +4,55 @@
              x:Class="MiniPaint1.MainPage">
 
     <Grid RowDefinitions="auto, *" BackgroundColor="LightBlue">
-        <Grid Grid.Row="0">
-            
+        <Grid Grid.Row="0" Margin="10">
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <RadioButton x:Name="prostaRb" Content="Linia prosta" IsChecked="True"/>
+                <RadioButton x:Name="dowolnaRb" Content="Linia dowolna"/>
+            </StackLayout>
+
+            <FlexLayout x:Name="KoloryFL" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" AlignItems="Center" Wrap="Wrap">
+                <Rectangle Fill="Pink" HeightRequest="15" WidthRequest="15">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+                <Rectangle Fill="Yellow" HeightRequest="15" WidthRequest="15">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+                <Rectangle Fill="Orange" HeightRequest="15" WidthRequest="15">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+                <Rectangle Fill="Red" HeightRequest="15" WidthRequest="15">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+                <Rectangle Fill="Green" HeightRequest="15" WidthRequest="15">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+                <Rectangle Fill="Purple" HeightRequest="15" WidthRequest="15">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+                <Rectangle Fill="{SolidColorBrush Grey}" HeightRequest="15" WidthRequest="15">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+                <Rectangle Fill="Black" HeightRequest="18" WidthRequest="18" RadiusX="3" RadiusY="3">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+                
+            </FlexLayout>
         </Grid>
 
         <GraphicsView 

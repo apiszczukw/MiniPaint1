@@ -1,4 +1,6 @@
-﻿using MiniPaint1.Klasy;
+﻿
+using Microsoft.Maui.Controls.Shapes;
+using MiniPaint1.Klasy;
 
 namespace MiniPaint1
 {
@@ -33,14 +35,21 @@ namespace MiniPaint1
         {
             if (!czyRysuje) return;
 
-            if(ostatniRysunek != null)
-            {
-                plotno.Linie.Remove(ostatniRysunek);
-            }
-
             PointF punktAktualny = e.Touches[0];
 
-            RysujLinie(punktAktualny);
+            if (dowolnaRb.IsChecked)
+            {
+                RysujLinie(punktAktualny);
+                punktStartowy = punktAktualny;
+            }
+            else
+            {
+                if(ostatniRysunek != null)
+                {
+                    plotno.Linie.Remove(ostatniRysunek);
+                }
+                RysujLinie(punktAktualny);
+            }
 
             poleRysowania.Invalidate();
         }
@@ -62,6 +71,39 @@ namespace MiniPaint1
         {
             czyRysuje = false;
             ostatniRysunek = null;
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+        {
+            WyczyscZaznaczenie();
+
+
+            if(sender is Rectangle kolor)
+            {
+                kolor.RadiusX = 3;
+                kolor.RadiusY = 3;
+                kolor.WidthRequest = 18;
+                kolor.HeightRequest = 18;
+
+                if(kolor.Fill is SolidColorBrush solid)
+                {
+                    pedzel = solid.Color;
+                }
+            }
+        }
+
+        private void WyczyscZaznaczenie()
+        {
+            foreach (var kolor in KoloryFL.Children)
+            {
+                if(kolor is Rectangle kwadrat)
+                {
+                    kwadrat.RadiusX = 0;
+                    kwadrat.RadiusY = 0;
+                    kwadrat.WidthRequest = 15;
+                    kwadrat.HeightRequest = 15;
+                }
+            }
         }
     }
 
